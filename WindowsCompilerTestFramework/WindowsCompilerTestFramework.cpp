@@ -27,12 +27,12 @@ int main()
 	std::vector<std::string> flags = { "experimental:module", "std:c++latest", "Wall", "nologo","c" };
 	std::vector<std::string> flags2 = { "std=c++2a", "Wextra", "S" };
 	auto code =
-		R"(auto square(int x, int y)
-		{
-			return x*x;
-		})";
+R"(auto square(int x, int y)
+{
+	return x*x;
+})";
 	auto code2 =
-		R"(
+R"(
 #include <type_traits>
 #include <string>
 template<typename T>
@@ -50,15 +50,14 @@ int main()
 	return 0;
 }
 )";
-	/*auto [a, b] = compilerCode(compilerSystem::Visual_C, code, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.20.27508/bin/Hostx64/x64/cl", flags);
+	auto [a, b] = compilerCode(compilerSystem::Visual_C, code, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.26.28801/bin/Hostx86/x86/cl.exe", flags);
 	std::cout << "VC++ " << std::boolalpha << a << " " << b << " warning\n";
-	auto [c, d] = compilerCode(compilerSystem::Clang_Win, code, (std::string)"C:/Program Files (x86)/LLVM/bin/clang++", flags2);
-	std::cout << "clang++ " << std::boolalpha << c << " " << d << " warning\n";*/
-	auto [e, f] = compilerCode(compilerSystem::Visual_C, code2, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.20.27508/bin/Hostx64/x64/cl", flags);
+	auto [c, d] = compilerCode(compilerSystem::Clang_Win, code, (std::string)"C:/Program Files/LLVM/bin/clang++", flags2);
+	std::cout << "clang++ " << std::boolalpha << c << " " << d << " warning\n";
+	auto [e, f] = compilerCode(compilerSystem::Visual_C, code2, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.16.27023/bin/Hostx64/x64/cl", flags);
 	std::cout << "VC++ " << std::boolalpha << e << " " << f << " warning\n";
-	/*auto [g, h] = compilerCode(compilerSystem::Clang_Win, code2, (std::string)"C:/Program Files (x86)/LLVM/bin/clang++", flags2);
+	auto [g, h] = compilerCode(compilerSystem::Clang_Win, code2, (std::string)"C:/Program Files (x86)/LLVM/bin/clang++", flags2);
 	std::cout << "clang++ " << std::boolalpha << g << " " << h << " warning\n";
-	std::cout << "Hello World!\n";*/
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

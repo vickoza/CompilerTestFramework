@@ -157,6 +157,9 @@
   <ItemGroup>
     <ClCompile Include="WindowsCompilerTestFramework.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="WindowsDrivers.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

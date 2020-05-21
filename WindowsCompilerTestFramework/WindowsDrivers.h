@@ -1,6 +1,6 @@
 #pragma once
 #include <fstream>
-#include <filesystem>
+//#include <filesystem>
 #include <vector>
 #include <string>
 #include <tuple>
@@ -11,7 +11,7 @@ enum class compilerSystem
 	Visual_C,
 	Clang_Win
 };
-namespace fs = std::filesystem;
+//namespace fs = std::filesystem;
 auto compilerCode(compilerSystem compTarg, const std::string& code, const std::string& compilerPath, const std::vector<std::string>& flags)
 {
 	{
@@ -19,8 +19,6 @@ auto compilerCode(compilerSystem compTarg, const std::string& code, const std::s
 		sampl << code;
 	}
 	auto compileCall = (std::string)"";
-	if (compTarg == compilerSystem::Visual_C)
-		compileCall += (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/Common7/Tools/VsDevCmd.bat\r\n";
 	compileCall += (std::string)"\"" + compilerPath + (std::string)"\"";
 	for (const auto& flag : flags)
 	{
@@ -43,6 +41,11 @@ auto compilerCode(compilerSystem compTarg, const std::string& code, const std::s
 				count++;
 		}
 	}
+	//fs::path dir = fs::temp_directory_path();
+	std::remove("sample.cpp");
+	std::remove("sample.obj");
+	std::remove("build.result");
+
 	if (retVal != 0)
 		return std::make_tuple(false, count);
 	else
