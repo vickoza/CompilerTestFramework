@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <fstream>
 //#include <filesystem>
 #include <vector>
@@ -11,20 +12,43 @@ enum class compilerSystem
 	Visual_C,
 	Clang_Win
 };
-//namespace fs = std::filesystem;
-auto compilerCode(compilerSystem compTarg, const std::string& code, const std::string& compilerPath, const std::vector<std::string>& flags)
+auto compilerCode(compilerSystem compTarg, const std::string& code, const std::string& compilerPath, const std::vector<std::string>& setups, const std::vector<std::string>& flags, const std::vector<std::string>& includes)
 {
 	{
 		std::ofstream sampl("sample.cpp");
 		sampl << code;
 	}
 	auto compileCall = (std::string)"";
-	compileCall += (std::string)"\"" + compilerPath + (std::string)"\"";
-	for (const auto& flag : flags)
+	for (const auto& setup : setups)
 	{
-		compileCall += (std::string)" -" + flag;
+		compileCall += setup + " && ";
+	}
+	compileCall += (std::string)"\"" + compilerPath + (std::string)"\"";
+	if (compTarg == compilerSystem::Visual_C)
+	{
+		for (const auto& flag : flags)
+		{
+			compileCall += (std::string)" /" + flag;
+		}
+		for (const auto& includeFile : includes)
+		{
+			compileCall += (std::string)" /I " + includeFile;
+		}
+	}
+	else
+	{
+		for (const auto& flag : flags)
+		{
+			compileCall += (std::string)" -" + flag;
+		}
+		for (const auto& includeFile : includes)
+		{
+			compileCall += (std::string)" -I" + includeFile;
+		}
 	}
 	compileCall += (std::string)" sample.cpp > build.result 2>&1";
+
+	std::cout.flush();
 	auto retVal = std::system(compileCall.c_str());
 	auto count = 0;
 	{
@@ -41,8 +65,10 @@ auto compilerCode(compilerSystem compTarg, const std::string& code, const std::s
 				count++;
 		}
 	}
+
 	//fs::path dir = fs::temp_directory_path();
 	std::remove("sample.cpp");
+	std::remove("sample.s");
 	std::remove("sample.obj");
 	std::remove("build.result");
 
