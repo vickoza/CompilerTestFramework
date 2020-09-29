@@ -26,6 +26,7 @@ auto compilerCode(compilerSystem compTarg, const std::string& code, const std::s
 	compileCall += (std::string)"\"" + compilerPath + (std::string)"\"";
 	if (compTarg == compilerSystem::Visual_C)
 	{
+		//compileCall += (std::string)" /c";
 		for (const auto& flag : flags)
 		{
 			compileCall += (std::string)" /" + flag;
