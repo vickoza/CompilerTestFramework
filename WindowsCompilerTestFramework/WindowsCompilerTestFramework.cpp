@@ -60,7 +60,6 @@ auto square(T x)
 int main()
 {
 	std::string str1("2");
-	square(2);
 	square(str1);
 	return 0;
 }
@@ -91,10 +90,11 @@ int main()
 auto code6 =
 R"(
 #include <data_ledger.h>
+#include <complex>
 
 int main()
 {
-	data_ledger<int> leg(0);
+	data_ledger<std::complex<double>> leg(0.0);
 	return 0;
 }
 )";
@@ -106,7 +106,7 @@ R"(
 
 int main()
 {
-	data_ledger<std::string> leg(0);
+	data_ledger<std::string> leg("0");
 	return 0;
 }
 )";
