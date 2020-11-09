@@ -135,12 +135,12 @@ int main()
 }
 )";
 
-	/*std::cout << "Code 1\n";
+	std::cout << "Code 1\n";
 	auto [a, b] = compilerCode(compilerSystem::Visual_C, code, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl", setup, flags, includes);
 	std::cout << "VC++ " << std::boolalpha << a << " " << b << " warning\n";
 	auto [c, d] = compilerCode(compilerSystem::Clang_Win, code, (std::string)"C:/Program Files/LLVM/bin/clang++", setup2, flags2, includes2);
 	std::cout << "clang++ " << std::boolalpha << c << " " << d << " warning\n";
-	*/std::cout << "\nCode 2\n";
+	std::cout << "\nCode 2\n";
 	auto [e, f] = compilerCode(compilerSystem::Visual_C, code2, (std::string)"C:/Program Files (x86)/Microsoft Visual Studio/2019/Preview/VC/Tools/MSVC/14.28.29333/bin/Hostx86/x86/cl", setup, flags, includes);
 	std::cout << "VC++ " << std::boolalpha << e << " " << f << " warning\n";
 	auto [g, h] = compilerCode(compilerSystem::Clang_Win, code2, (std::string)"C:/Program Files/LLVM/bin/clang++", setup2, flags2, includes2);
