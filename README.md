@@ -5,9 +5,10 @@ A framework for testing code if it compile on different compilers
 
 This framework for testing where code compile using unit testing framework and how many warning compiled code generates. This was primarily designed for template library writers to test if their library will or will not compile with different templete agruments. However compiler writer can use this to track regestion in compiler build. This only compiles and does not link
 
+
 ## Requirements
 
-Currently it is only Windows and a C++ compiler including Clang and MSVC++, This depends pimarily on C++ 11. I have tested it with Visual Studios 2019 and Visual Studion 2022. This is defined in the function in the header WindowsDrivers.h. This might move when support for other Operating System happen. Plans to support GCC as well Linux, FreeBSD and other OS are in the works. Intel compiler and other compiler can be added if requisted.
+a C++ compiler including Clang and MSVC++, This depends on C++ 17 (for costexpr if) to build but can use any C++ compiler to run on clang, gcc, and MSVC++. I have tested it with Visual Studios 2019 and Visual Studion 2022. This is defined in the function in the header compilerTestInterface.h. Implimentation move to compilerTestInterface.cpp . Plans to support as well Linux, FreeBSD and other OS are in the works. Intel compiler and other compiler can be added if requested.
 
 ## Instructions
 
