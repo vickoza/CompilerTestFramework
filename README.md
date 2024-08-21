@@ -7,7 +7,7 @@ This framework for testing where code compile using unit testing framework and h
 
 ## Requirements
 
-Currently it is only Windows and a C++ compiler including Clang and MSVC++, This depends pimarily on C++ 11. I have tested it with Visual Studios 2019. This is defined in the function in the header WindowsDrivers.h. This might move when support for other Operating System happen. Plans to support GCC as well Linux, FreeBSD and other OS are in the works. Intel compiler and other compiler can be added if requisted.
+Currently it is only Windows and a C++ compiler including Clang and MSVC++, This depends pimarily on C++ 11. I have tested it with Visual Studios 2019 and Visual Studion 2022. This is defined in the function in the header WindowsDrivers.h. This might move when support for other Operating System happen. Plans to support GCC as well Linux, FreeBSD and other OS are in the works. Intel compiler and other compiler can be added if requisted.
 
 ## Instructions
 
@@ -20,4 +20,8 @@ One simply uses the function compilerCode to test the code. This will return a t
 
 ## Example
 
-An example usage is found in the WindowsCompilerTestFramework.cpp the path is for my computer so change in to fit you computer
+An example for windows usage is found in the WindowsCompilerTestFramework.cpp the path is for my computer so change in to fit you computer
+
+## LinuxCompilerTestFrameworkTest 
+
+An example using Linux remote tool and is tested using WSL 
